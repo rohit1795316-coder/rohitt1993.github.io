@@ -1,0 +1,1337 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rohit Rawat - Advanced Portfolio</title>
+  <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+html, body {
+height: 100%;
+width: 100%;
+}
+
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+overflow-x: hidden;
+background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+color: #e0e0e0;
+line-height: 1.6;
+}
+
+/* ==================== SCROLLBAR ==================== */
+::-webkit-scrollbar {
+width: 12px;
+}
+
+::-webkit-scrollbar-track {
+background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb {
+background: #00d4ff;
+border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: #00a8cc;
+}
+
+/* ==================== NAVBAR ==================== */
+nav {
+position: fixed;
+top: 0;
+width: 100%;
+background: rgba(15, 12, 41, 0.95);
+backdrop-filter: blur(10px);
+padding: 1rem 2rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+z-index: 1000;
+border-bottom: 2px solid rgba(0, 212, 255, 0.2);
+box-shadow: 0 4px 30px rgba(0, 212, 255, 0.1);
+animation: slideDown 0.6s ease-out;
+}
+
+@keyframes slideDown {
+from {
+transform: translateY(-100%);
+opacity: 0;
+}
+to {
+transform: translateY(0);
+opacity: 1;
+}
+}
+
+.nav-brand {
+font-size: 1.8rem;
+font-weight: 800;
+background: linear-gradient(135deg, #00d4ff, #7b2cbf);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+letter-spacing: 1px;
+}
+
+.nav-links {
+display: flex;
+gap: 2rem;
+list-style: none;
+}
+
+.nav-links a {
+color: #e0e0e0;
+text-decoration: none;
+font-weight: 600;
+transition: all 0.3s ease;
+position: relative;
+font-size: 1rem;
+}
+
+.nav-links a::after {
+content: '';
+position: absolute;
+bottom: -5px;
+left: 0;
+width: 0;
+height: 2px;
+background: linear-gradient(135deg, #00d4ff, #7b2cbf);
+transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+width: 100%;
+}
+
+.nav-links a:hover {
+color: #00d4ff;
+transform: translateY(-2px);
+}
+
+/* ==================== HEADER/HERO SECTION ==================== */
+header {
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 6rem 2rem 2rem;
+margin-top: 60px;
+position: relative;
+overflow: hidden;
+}
+
+.header-content {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 4rem;
+align-items: center;
+max-width: 1200px;
+width: 100%;
+z-index: 10;
+}
+
+.header-text h1 {
+font-size: 3.5rem;
+font-weight: 900;
+margin-bottom: 1rem;
+background: linear-gradient(135deg, #00d4ff, #7b2cbf, #ff006e);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+line-height: 1.2;
+animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+from {
+opacity: 0;
+transform: translateY(30px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+.header-text p {
+font-size: 1.3rem;
+color: #b0b0b0;
+margin-bottom: 2rem;
+animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.header-buttons {
+display: flex;
+gap: 1.5rem;
+animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.btn {
+padding: 1rem 2.5rem;
+font-size: 1.1rem;
+font-weight: 700;
+border: none;
+border-radius: 50px;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+display: inline-block;
+position: relative;
+overflow: hidden;
+}
+
+.btn-primary {
+background: linear-gradient(135deg, #00d4ff, #7b2cbf);
+color: #fff;
+box-shadow: 0 8px 30px rgba(0, 212, 255, 0.3);
+}
+
+.btn-primary:hover {
+transform: translateY(-3px);
+box-shadow: 0 12px 40px rgba(0, 212, 255, 0.5);
+}
+
+.btn-secondary {
+background: transparent;
+color: #00d4ff;
+border: 2px solid #00d4ff;
+box-shadow: inset 0 0 20px rgba(0, 212, 255, 0.1);
+}
+
+.btn-secondary:hover {
+background: rgba(0, 212, 255, 0.1);
+transform: translateY(-3px);
+box-shadow: inset 0 0 20px rgba(0, 212, 255, 0.3), 0 8px 30px rgba(0, 212, 255, 0.2);
+}
+
+.profile-pic-container {
+position: relative;
+}
+
+.profile-pic {
+width: 350px;
+height: 350px;
+border-radius: 20px;
+object-fit: cover;
+border: 4px solid transparent;
+background: linear-gradient(135deg, #00d4ff, #7b2cbf, #ff006e);
+background-clip: padding-box;
+box-shadow: 0 20px 60px rgba(0, 212, 255, 0.4), inset 0 0 30px rgba(0, 212, 255, 0.2);
+animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+0%, 100% {
+box-shadow: 0 20px 60px rgba(0, 212, 255, 0.4), inset 0 0 30px rgba(0, 212, 255, 0.2);
+}
+50% {
+box-shadow: 0 20px 80px rgba(123, 44, 191, 0.6), inset 0 0 40px rgba(123, 44, 191, 0.3);
+}
+}
+
+/* ==================== ABOUT SECTION ==================== */
+#about {
+padding: 6rem 2rem;
+background: linear-gradient(180deg, transparent 0%, rgba(0, 212, 255, 0.05) 100%);
+}
+
+.section-title {
+font-size: 2.8rem;
+font-weight: 900;
+text-align: center;
+margin-bottom: 3rem;
+background: linear-gradient(135deg, #00d4ff, #7b2cbf);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+position: relative;
+}
+
+.section-title::after {
+content: '';
+display: block;
+width: 150px;
+height: 4px;
+background: linear-gradient(135deg, #00d4ff, #7b2cbf);
+margin: 1rem auto 0;
+border-radius: 2px;
+}
+
+.about-content {
+max-width: 900px;
+margin: 0 auto;
+background: rgba(48, 43, 99, 0.3);
+padding: 3rem;
+border-radius: 20px;
+border: 1px solid rgba(0, 212, 255, 0.2);
+backdrop-filter: blur(10px);
+box-shadow: 0 8px 32px rgba(0, 212, 255, 0.1);
+animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+from {
+opacity: 0;
+transform: translateY(30px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+.about-content p {
+font-size: 1.1rem;
+color: #d0d0d0;
+margin-bottom: 1.5rem;
+line-height: 1.8;
+text-align: justify;
+}
+
+.about-content h3 {
+color: #00d4ff;
+font-size: 1.5rem;
+margin-top: 2rem;
+margin-bottom: 1rem;
+}
+
+.about-content ul {
+list-style: none;
+margin-left: 0;
+}
+
+.about-content li {
+padding: 0.8rem 0;
+padding-left: 2rem;
+position: relative;
+color: #c0c0c0;
+}
+
+.about-content li::before {
+content: '✓';
+position: absolute;
+left: 0;
+color: #00d4ff;
+font-weight: bold;
+font-size: 1.3rem;
+}
+
+/* ==================== SKILLS SECTION ==================== */
+#skills {
+padding: 6rem 2rem;
+background: linear-gradient(180deg, rgba(0, 212, 255, 0.05) 0%, transparent 100%);
+}
+
+.skills-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 2rem;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.skill-card {
+background: rgba(48, 43, 99, 0.4);
+padding: 2.5rem;
+border-radius: 15px;
+border: 1px solid rgba(0, 212, 255, 0.3);
+text-align: center;
+transition: all 0.4s ease;
+backdrop-filter: blur(10px);
+animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+from {
+opacity: 0;
+}
+to {
+opacity: 1;
+}
+}
+
+.skill-card:hover {
+transform: translateY(-10px);
+border-color: #00d4ff;
+box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+background: rgba(48, 43, 99, 0.6);
+}
+
+.skill-icon {
+font-size: 3.5rem;
+margin-bottom: 1rem;
+display: block;
+}
+
+.skill-card h3 {
+font-size: 1.5rem;
+color: #00d4ff;
+margin-bottom: 1rem;
+font-weight: 800;
+}
+
+.skill-card p {
+color: #b0b0b0;
+font-size: 1rem;
+line-height: 1.6;
+}
+
+.skill-level {
+margin-top: 1rem;
+height: 6px;
+background: rgba(0, 212, 255, 0.2);
+border-radius: 3px;
+overflow: hidden;
+}
+
+.skill-bar {
+height: 100%;
+background: linear-gradient(90deg, #00d4ff, #7b2cbf);
+border-radius: 3px;
+animation: expandWidth 1.2s ease-out forwards;
+}
+
+@keyframes expandWidth {
+from {
+width: 0;
+}
+to {
+width: 100%;
+}
+}
+
+/* ==================== PROJECTS SECTION ==================== */
+#projects {
+padding: 6rem 2rem;
+background: linear-gradient(180deg, transparent 0%, rgba(0, 212, 255, 0.05) 100%);
+}
+
+.projects-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+gap: 2.5rem;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.project-card {
+background: rgba(48, 43, 99, 0.3);
+border-radius: 15px;
+overflow: hidden;
+border: 1px solid rgba(0, 212, 255, 0.2);
+transition: all 0.4s ease;
+backdrop-filter: blur(10px);
+display: flex;
+flex-direction: column;
+height: 100%;
+}
+
+.project-card:hover {
+transform: translateY(-12px);
+box-shadow: 0 25px 50px rgba(0, 212, 255, 0.3);
+border-color: #00d4ff;
+}
+
+.project-image {
+width: 100%;
+height: 220px;
+background: linear-gradient(135deg, #1a1a2e, #302b63);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 3rem;
+overflow: hidden;
+position: relative;
+}
+
+.project-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image img {
+transform: scale(1.1);
+}
+
+.project-image.no-image {
+font-size: 4rem;
+background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(123, 44, 191, 0.1));
+}
+
+.project-content {
+padding: 2rem;
+flex-grow: 1;
+display: flex;
+flex-direction: column;
+}
+
+.project-content h3 {
+font-size: 1.5rem;
+color: #00d4ff;
+margin-bottom: 1rem;
+font-weight: 800;
+}
+
+.project-content p {
+color: #b0b0b0;
+font-size: 0.95rem;
+margin-bottom: 1.5rem;
+flex-grow: 1;
+line-height: 1.6;
+}
+
+.project-tags {
+display: flex;
+gap: 0.8rem;
+flex-wrap: wrap;
+margin-bottom: 1.5rem;
+}
+
+.tag {
+background: rgba(0, 212, 255, 0.15);
+color: #00d4ff;
+padding: 0.4rem 1rem;
+border-radius: 20px;
+font-size: 0.85rem;
+font-weight: 600;
+border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.project-link {
+display: inline-block;
+background: linear-gradient(135deg, #00d4ff, #7b2cbf);
+color: white;
+padding: 0.8rem 2rem;
+border-radius: 50px;
+text-decoration: none;
+font-weight: 700;
+transition: all 0.3s ease;
+text-align: center;
+border: none;
+cursor: pointer;
+}
+
+.project-link:hover {
+transform: translateX(5px);
+box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
+}
+
+/* ==================== CONTACT SECTION ==================== */
+#contact {
+padding: 6rem 2rem;
+background: linear-gradient(180deg, rgba(0, 212, 255, 0.05) 0%, transparent 100%);
+}
+
+.contact-wrapper {
+max-width: 700px;
+margin: 0 auto;
+}
+
+.contact-form {
+background: rgba(48, 43, 99, 0.3);
+padding: 3rem;
+border-radius: 20px;
+border: 1px solid rgba(0, 212, 255, 0.2);
+backdrop-filter: blur(10px);
+box-shadow: 0 8px 32px rgba(0, 212, 255, 0.1);
+}
+
+.form-group {
+margin-bottom: 2rem;
+animation: slideUp 0.8s ease-out;
+}
+
+.form-group label {
+display: block;
+margin-bottom: 0.8rem;
+color: #00d4ff;
+font-weight: 700;
+font-size: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+width: 100%;
+padding: 1rem;
+background: rgba(0, 0, 0, 0.3);
+border: 2px solid rgba(0, 212, 255, 0.2);
+border-radius: 10px;
+color: #e0e0e0;
+font-size: 1rem;
+font-family: inherit;
+transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+outline: none;
+border-color: #00d4ff;
+background: rgba(0, 212, 255, 0.1);
+box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+}
+
+.form-group textarea {
+resize: vertical;
+min-height: 120px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+color: #707070;
+}
+
+.contact-form button {
+width: 100%;
+padding: 1.2rem;
+background: linear-gradient(135deg, #00d4ff, #7b2cbf);
+color: white;
+border: none;
+border-radius: 10px;
+font-size: 1.1rem;
+font-weight: 800;
+cursor: pointer;
+transition: all 0.3s ease;
+box-shadow: 0 8px 30px rgba(0, 212, 255, 0.3);
+}
+
+.contact-form button:hover {
+transform: translateY(-3px);
+box-shadow: 0 12px 40px rgba(0, 212, 255, 0.5);
+}
+
+.contact-form button:active {
+transform: translateY(-1px);
+}
+
+.form-message {
+padding: 1rem;
+margin-top: 1rem;
+border-radius: 10px;
+display: none;
+animation: slideUp 0.4s ease-out;
+}
+
+.form-message.success {
+background: rgba(76, 175, 80, 0.2);
+color: #4caf50;
+border: 1px solid rgba(76, 175, 80, 0.5);
+display: block;
+}
+
+.form-message.error {
+background: rgba(244, 67, 54, 0.2);
+color: #ff5252;
+border: 1px solid rgba(244, 67, 54, 0.5);
+display: block;
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+background: rgba(15, 12, 41, 0.8);
+padding: 2rem;
+text-align: center;
+border-top: 2px solid rgba(0, 212, 255, 0.2);
+color: #808080;
+font-size: 0.95rem;
+}
+
+footer a {
+color: #00d4ff;
+text-decoration: none;
+transition: color 0.3s ease;
+}
+
+footer a:hover {
+color: #7b2cbf;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 768px) {
+.nav-links {
+gap: 1rem;
+}
+
+.header-content {
+grid-template-columns: 1fr;
+gap: 2rem;
+}
+
+.header-text h1 {
+font-size: 2.5rem;
+}
+
+.header-text p {
+font-size: 1.1rem;
+}
+
+.profile-pic {
+width: 280px;
+height: 280px;
+}
+
+.header-buttons {
+flex-direction: column;
+}
+
+.btn {
+width: 100%;
+text-align: center;
+}
+
+.section-title {
+font-size: 2.2rem;
+}
+
+.about-content {
+padding: 2rem;
+}
+
+.skills-grid {
+grid-template-columns: 1fr;
+}
+
+.contact-form {
+padding: 2rem;
+}
+
+.nav-brand {
+font-size: 1.4rem;
+}
+}
+
+@media (max-width: 480px) {
+nav {
+padding: 1rem;
+}
+
+.nav-brand {
+font-size: 1.2rem;
+}
+
+.nav-links {
+gap: 0.8rem;
+font-size: 0.9rem;
+}
+
+header {
+padding: 4rem 1rem 1rem;
+margin-top: 70px;
+}
+
+.header-text h1 {
+font-size: 2rem;
+}
+
+.profile-pic {
+width: 220px;
+height: 220px;
+}
+
+.section-title {
+font-size: 1.8rem;
+}
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes pulse {
+0%, 100% {
+opacity: 1;
+}
+50% {
+opacity: 0.7;
+}
+}
+
+.loading {
+animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ==================== GAME MODAL ==================== */
+.game-modal {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.8);
+z-index: 2000;
+justify-content: center;
+align-items: center;
+backdrop-filter: blur(5px);
+}
+
+.game-modal.active {
+display: flex;
+}
+
+.game-container {
+background: linear-gradient(135deg, #0f0c29, #302b63);
+padding: 3rem;
+border-radius: 20px;
+border: 2px solid rgba(0, 212, 255, 0.3);
+box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+max-width: 500px;
+width: 90%;
+animation: slideUp 0.4s ease-out;
+}
+
+.game-header {
+text-align: center;
+margin-bottom: 2rem;
+}
+
+.game-header h2 {
+font-size: 2rem;
+background: linear-gradient(135deg, #00d4ff, #7b2cbf);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+margin-bottom: 1rem;
+}
+
+.game-score {
+display: flex;
+justify-content: space-around;
+gap: 1rem;
+margin-bottom: 1rem;
+font-size: 0.95rem;
+}
+
+.score-item {
+background: rgba(0, 212, 255, 0.1);
+padding: 0.8rem 1.5rem;
+border-radius: 10px;
+border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.score-item strong {
+color: #00d4ff;
+}
+
+.game-board {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 0.8rem;
+margin-bottom: 2rem;
+background: rgba(0, 0, 0, 0.3);
+padding: 1rem;
+border-radius: 15px;
+}
+
+.game-cell {
+aspect-ratio: 1;
+background: rgba(48, 43, 99, 0.6);
+border: 2px solid rgba(0, 212, 255, 0.3);
+border-radius: 10px;
+font-size: 2rem;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #00d4ff;
+}
+
+.game-cell:hover {
+background: rgba(0, 212, 255, 0.15);
+border-color: #00d4ff;
+}
+
+.game-cell.x {
+color: #ff006e;
+}
+
+.game-cell.o {
+color: #7b2cbf;
+}
+
+.game-status {
+text-align: center;
+font-size: 1.2rem;
+font-weight: 600;
+color: #00d4ff;
+margin-bottom: 1.5rem;
+min-height: 30px;
+}
+
+.game-buttons {
+display: flex;
+gap: 1rem;
+flex-wrap: wrap;
+}
+
+.game-btn {
+flex: 1;
+padding: 0.8rem;
+border: none;
+border-radius: 10px;
+font-weight: 700;
+cursor: pointer;
+transition: all 0.3s ease;
+font-size: 0.95rem;
+}
+
+.game-btn-new {
+background: linear-gradient(135deg, #00d4ff, #7b2cbf);
+color: white;
+box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
+}
+
+.game-btn-new:hover {
+transform: translateY(-2px);
+box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+}
+
+.game-btn-close {
+background: rgba(0, 212, 255, 0.1);
+color: #00d4ff;
+border: 2px solid #00d4ff;
+}
+
+.game-btn-close:hover {
+background: rgba(0, 212, 255, 0.2);
+}
+</style>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+  <style>body { box-sizing: border-box; }</style>
+ </head>
+ <body><!-- ==================== NAVBAR ==================== -->
+  <nav>
+   <div class="nav-brand">
+    Rohit Rawat
+   </div>
+   <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+   </ul>
+  </nav><!-- ==================== HEADER/HERO SECTION ==================== -->
+  <header id="home">
+   <div class="header-content">
+    <div class="header-text">
+     <h1>Creative Developer &amp; AI Enthusiast</h1>
+     <p>Building innovative digital solutions with cutting-edge technology and AI-powered tools. Let's create something extraordinary together!</p>
+     <div class="header-buttons"><button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Get in Touch</button> <a href="#projects" class="btn btn-secondary">View My Work</a>
+     </div>
+    </div>
+    <div class="profile-pic-container"><img src="image 2.jpg" alt="Rohit Rawat Profile Picture" class="profile-pic" loading="lazy" onerror="console.error('Profile image failed to load'); this.style.background='linear-gradient(135deg, #1a1a2e, #302b63)';">
+    </div>
+   </div>
+  </header><!-- ==================== ABOUT SECTION ==================== -->
+  <section id="about">
+   <h2 class="section-title">About Me</h2>
+   <div class="about-content">
+    <p>Hello! I'm Rohit Rawat, a passionate Full-Stack Developer and AI enthusiast dedicated to creating exceptional digital experiences. With a strong foundation in web development and an ever-growing expertise in AI tools and technologies, I blend creativity with cutting-edge innovation to solve complex problems.</p>
+    <p>My journey in tech started with a curiosity about how things work on the web, and it has evolved into a comprehensive skill set spanning frontend development, backend architecture, and emerging AI technologies. I believe in writing clean, efficient code and creating user-centered designs that make a real impact.</p>
+    <h3>What I Do Best:</h3>
+    <ul>
+     <li>Develop responsive, modern web applications using HTML5, CSS3, and JavaScript</li>
+     <li>Design beautiful user interfaces with advanced CSS animations and transitions</li>
+     <li>Implement interactive features that enhance user engagement</li>
+     <li>Integrate AI tools and APIs to create intelligent solutions</li>
+     <li>Build scalable backend systems and databases</li>
+     <li>Optimize web performance and ensure cross-browser compatibility</li>
+     <li>Collaborate with teams to deliver high-quality projects on time</li>
+    </ul>
+    <p>When I'm not coding, you'll find me exploring new AI technologies, contributing to open-source projects, or sharing my knowledge with the developer community. I'm always eager to learn, grow, and push the boundaries of what's possible in web development.</p>
+   </div>
+  </section><!-- ==================== SKILLS SECTION ==================== -->
+  <section id="skills">
+   <h2 class="section-title">Advanced Skills</h2>
+   <div class="skills-grid">
+    <div class="skill-card"><span class="skill-icon">🎨</span>
+     <h3>HTML5</h3>
+     <p>Expert in semantic HTML markup, accessible elements, forms, media integration, and best practices for structured web content.</p>
+     <div class="skill-level">
+      <div class="skill-bar" style="width: 95%;"></div>
+     </div>
+    </div>
+    <div class="skill-card"><span class="skill-icon">🎭</span>
+     <h3>CSS3</h3>
+     <p>Advanced CSS styling with animations, flexbox, grid layouts, responsive design, and modern visual effects.</p>
+     <div class="skill-level">
+      <div class="skill-bar" style="width: 95%;"></div>
+     </div>
+    </div>
+    <div class="skill-card"><span class="skill-icon">⚡</span>
+     <h3>JavaScript</h3>
+     <p>Advanced proficiency in vanilla JavaScript, ES6+, DOM manipulation, async programming, fetch APIs, and event-driven architecture.</p>
+     <div class="skill-level">
+      <div class="skill-bar" style="width: 92%;"></div>
+     </div>
+    </div>
+    <div class="skill-card"><span class="skill-icon">🤖</span>
+     <h3>AI &amp; ML Tools</h3>
+     <p>Experienced with GPT APIs, ChatGPT integration, AI-powered automation, machine learning frameworks, and intelligent solution development.</p>
+     <div class="skill-level">
+      <div class="skill-bar" style="width: 88%;"></div>
+     </div>
+    </div>
+   </div>
+  </section><!-- ==================== PROJECTS SECTION ==================== -->
+  <section id="projects">
+   <h2 class="section-title">Featured Projects</h2>
+   <div class="projects-grid">
+    <div class="project-card">
+     <div class="project-image"><img src="image 3.png" alt="Digital Bharat Initiative" loading="lazy" onerror="console.error('Project image failed'); this.parentElement.classList.add('no-image'); this.style.display='none';">
+     </div>
+     <div class="project-content">
+      <h3>Whether App Website</h3>
+      <p>A transformative weather platform designed to bridge the gap between technology and rural India. Features include weather website programs, e-commerce integration, IoT connectivity, and AI-powered solutions for sustainable development across multiple sectors.</p>
+      <div class="project-tags"><span class="tag">HTML5</span> <span class="tag">CSS3</span> <span class="tag">JavaScript</span> <span class="tag">AI</span>
+      </div><a href="index.html" target="_blank" rel="noopener noreferrer" class="project-link">View Project →</a>
+     </div>
+    </div>
+    <div class="project-card">
+     <div class="project-image"><img src="image 18.png" alt="Tic Tac Toe Game" loading="lazy" onerror="console.error('Project image failed'); this.parentElement.classList.add('no-image'); this.parentElement.textContent='🎮'; this.style.display='none';">
+     </div>
+     <div class="project-content">
+      <h3>TIC TAC TOE GAME</h3>
+      <p>A fully interactive Calculator game built with pure JavaScript, featuring AI calculationt, wrong detection, score tracking, and smooth animations. Play against the computer or a friend with responsive design.</p>
+      <div class="project-tags"><span class="tag">JavaScript</span> <span class="tag">Game Logic</span> <span class="tag">AI</span> <span class="tag">Animation</span>
+      </div><button class="project-link" onclick="openGameModal()">Play Calculation →</button>
+     </div>
+    </div>
+   </div>
+  </section><!-- ==================== GAME MODAL ==================== -->
+  <div id="gameModal" class="game-modal">
+   <div class="game-container">
+    <div class="game-header">
+     <h2>🎮 Tic Tac Toe</h2>
+     <div class="game-score">
+      <div class="score-item">
+       You: <strong id="playerScore">0</strong>
+      </div>
+      <div class="score-item">
+       AI: <strong id="aiScore">0</strong>
+      </div>
+      <div class="score-item">
+       Draw: <strong id="drawScore">0</strong>
+      </div>
+     </div>
+    </div>
+    <div class="game-status" id="gameStatus">
+     Your Turn
+    </div>
+    <div class="game-board" id="gameBoard"></div>
+    <div class="game-buttons">
+     <button class="game-btn game-btn-new" onclick="resetGame()">New Game</button> <button class="game-btn game-btn-close" onclick="closeGameModal()">Close</button>
+    </div>
+   </div>
+  </div><!-- ==================== CONTACT SECTION ==================== -->
+  <section id="contact">
+   <h2 class="section-title">Get In Touch</h2>
+   <div class="contact-wrapper">
+    <form class="contact-form" id="contactForm" onsubmit="handleFormSubmit(event)">
+     <div class="form-group"><label for="name">Full Name *</label> <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+     </div>
+     <div class="form-group"><label for="email">Email Address *</label> <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+     </div>
+     <div class="form-group"><label for="subject">Subject *</label> <input type="text" id="subject" name="subject" placeholder="What is this about?" required>
+     </div>
+     <div class="form-group"><label for="message">Message *</label> <textarea id="message" name="message" placeholder="Share your thoughts, questions, or project ideas..." required></textarea>
+     </div><button type="submit" class="btn btn-primary">Send Message via WhatsApp</button>
+     <div class="form-message" id="formMessage"></div>
+    </form>
+   </div>
+  </section><!-- ==================== FOOTER ==================== -->
+  <footer>
+   <p>© 2024 Rohit Rawat. All rights reserved. | <a href="#contact">Contact</a> | <a href="#about">About</a></p>
+   <p style="margin-top: 1rem;">Designed &amp; Developed with 💜 by Rohit Rawat</p>
+  </footer>
+  <script>
+// ==================== FORM SUBMISSION HANDLER ====================
+function handleFormSubmit(event) {
+event.preventDefault();
+
+// Get form values
+const name = document.getElementById('name').value.trim();
+const email = document.getElementById('email').value.trim();
+const subject = document.getElementById('subject').value.trim();
+const message = document.getElementById('message').value.trim();
+
+// Validate inputs
+if (!name || !email || !subject || !message) {
+showFormMessage('Please fill in all fields', 'error');
+return;
+}
+
+// Validate email format
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if (!emailRegex.test(email)) {
+showFormMessage('Please enter a valid email address', 'error');
+return;
+}
+
+// Create WhatsApp message
+const whatsappNumber = '917082550397'; // Indian phone number format
+const whatsappMessage = encodeURIComponent(
+`Hello Rohit!\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}\n\n---\nSent from portfolio contact form`
+);
+
+// WhatsApp API URL
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+// Show success message
+showFormMessage('✓ Redirecting to WhatsApp...', 'success');
+
+// Open WhatsApp in new tab after a short delay
+setTimeout(() => {
+window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+resetForm();
+}, 1000);
+}
+
+function showFormMessage(message, type) {
+const messageEl = document.getElementById('formMessage');
+messageEl.textContent = message;
+messageEl.className = `form-message ${type}`;
+// Auto-hide error messages after 5 seconds
+if (type === 'error') {
+setTimeout(() => {
+messageEl.className = 'form-message';
+}, 5000);
+}
+}
+
+function resetForm() {
+document.getElementById('contactForm').reset();
+setTimeout(() => {
+document.getElementById('formMessage').className = 'form-message';
+}, 2000);
+}
+
+// ==================== SMOOTH SCROLLING ====================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+const href = this.getAttribute('href');
+if (href !== '#' && href !== '#contact') {
+e.preventDefault();
+const target = document.querySelector(href);
+if (target) {
+target.scrollIntoView({
+behavior: 'smooth',
+block: 'start'
+});
+}
+}
+});
+});
+
+// ==================== NAVBAR ACTIVE STATE ====================
+window.addEventListener('scroll', () => {
+const navLinks = document.querySelectorAll('.nav-links a');
+let current = '';
+
+const sections = document.querySelectorAll('section, header');
+sections.forEach(section => {
+const sectionTop = section.offsetTop;
+const sectionHeight = section.clientHeight;
+if (scrollY >= sectionTop - 200) {
+current = section.getAttribute('id');
+}
+});
+
+navLinks.forEach(link => {
+link.style.color = '#e0e0e0';
+if (link.getAttribute('href') === `#${current}`) {
+link.style.color = '#00d4ff';
+}
+});
+});
+
+// ==================== INTERSECTION OBSERVER FOR ANIMATIONS ====================
+const observerOptions = {
+threshold: 0.1,
+rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.style.opacity = '1';
+entry.target.style.transform = 'translateY(0)';
+}
+});
+}, observerOptions);
+
+document.querySelectorAll('.skill-card, .project-card, .about-content').forEach(el => {
+el.style.opacity = '0';
+el.style.transform = 'translateY(20px)';
+el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+observer.observe(el);
+});
+
+// ==================== TIC TAC TOE GAME ====================
+let gameBoard = ['', '', '', '', '', '', '', '', ''];
+let playerScore = 0;
+let aiScore = 0;
+let drawScore = 0;
+let gameActive = true;
+let playerSymbol = 'X';
+let aiSymbol = 'O';
+
+const winCombos = [
+[0, 1, 2], [3, 4, 5], [6, 7, 8],
+[0, 3, 6], [1, 4, 7], [2, 5, 8],
+[0, 4, 8], [2, 4, 6]
+];
+
+function openGameModal() {
+document.getElementById('gameModal').classList.add('active');
+initializeGame();
+}
+
+function closeGameModal() {
+document.getElementById('gameModal').classList.remove('active');
+}
+
+function initializeGame() {
+gameBoard = ['', '', '', '', '', '', '', '', ''];
+gameActive = true;
+renderBoard();
+updateStatus('Your Turn');
+}
+
+function renderBoard() {
+const board = document.getElementById('gameBoard');
+board.innerHTML = '';
+gameBoard.forEach((cell, index) => {
+const cellDiv = document.createElement('div');
+cellDiv.className = 'game-cell';
+if (cell === 'X') cellDiv.classList.add('x');
+if (cell === 'O') cellDiv.classList.add('o');
+cellDiv.textContent = cell;
+cellDiv.onclick = () => playerMove(index);
+board.appendChild(cellDiv);
+});
+}
+
+function playerMove(index) {
+if (!gameActive || gameBoard[index] !== '') return;
+gameBoard[index] = playerSymbol;
+renderBoard();
+
+const result = checkWinner();
+if (result) {
+handleGameEnd(result);
+} else {
+setTimeout(aiMove, 500);
+}
+}
+
+function aiMove() {
+if (!gameActive) return;
+
+const emptySpaces = gameBoard.map((cell, idx) => cell === '' ? idx : null).filter(val => val !== null);
+if (emptySpaces.length === 0) return;
+
+// AI strategy
+let bestMove;
+
+// Try to win
+bestMove = findWinMove(aiSymbol);
+if (bestMove !== -1) {
+gameBoard[bestMove] = aiSymbol;
+renderBoard();
+const result = checkWinner();
+if (result) handleGameEnd(result);
+return;
+}
+
+// Block player
+bestMove = findWinMove(playerSymbol);
+if (bestMove !== -1) {
+gameBoard[bestMove] = aiSymbol;
+renderBoard();
+const result = checkWinner();
+if (result) handleGameEnd(result);
+return;
+}
+
+// Take center
+if (gameBoard[4] === '') {
+gameBoard[4] = aiSymbol;
+} else {
+// Take random corner or space
+gameBoard[emptySpaces[Math.floor(Math.random() * emptySpaces.length)]] = aiSymbol;
+}
+
+renderBoard();
+const result = checkWinner();
+if (result) {
+handleGameEnd(result);
+} else {
+updateStatus('Your Turn');
+}
+}
+
+function findWinMove(symbol) {
+for (let combo of winCombos) {
+const [a, b, c] = combo;
+const count = (gameBoard[a] === symbol ? 1 : 0) + (gameBoard[b] === symbol ? 1 : 0) + (gameBoard[c] === symbol ? 1 : 0);
+if (count === 2) {
+if (gameBoard[a] === '') return a;
+if (gameBoard[b] === '') return b;
+if (gameBoard[c] === '') return c;
+}
+}
+return -1;
+}
+
+function checkWinner() {
+for (let combo of winCombos) {
+const [a, b, c] = combo;
+if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[b] === gameBoard[c]) {
+return gameBoard[a];
+}
+}
+if (gameBoard.every(cell => cell !== '')) {
+return 'Draw';
+}
+return null;
+}
+
+function handleGameEnd(result) {
+gameActive = false;
+if (result === 'X') {
+playerScore++;
+updateStatus('🎉 You Won!');
+document.getElementById('playerScore').textContent = playerScore;
+} else if (result === 'O') {
+aiScore++;
+updateStatus('AI Won! 🤖');
+document.getElementById('aiScore').textContent = aiScore;
+} else {
+drawScore++;
+updateStatus("It's a Draw! 🤝");
+document.getElementById('drawScore').textContent = drawScore;
+}
+}
+
+function resetGame() {
+initializeGame();
+updateStatus('Your Turn');
+}
+
+function updateStatus(text) {
+document.getElementById('gameStatus').textContent = text;
+}
+</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d2fce215247795c',t:'MTc3MTk0NDk0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
